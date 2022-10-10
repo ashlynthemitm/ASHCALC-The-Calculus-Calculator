@@ -14,18 +14,18 @@ import java.awt.ComponentOrientation;
 import java.awt.Component;
 
 
-public class CalcOpp extends TestCalculator{ // Plan : utilize data structures for this , i can use an array to read each piece of the function or I can find other data structures 
+public class CalcOpp extends TestCalculator{ 
 
-	public static void main(String[] args) {// creating an algorithm suitable
+	public static void main(String[] args) {
 		String [][] power = {{"0", "⁰"}, {"1", "¹"}, {"2", "²"}, 
 				{"3", "³"}, {"4", "⁴"}, {"5", "⁵"}, 
 				{"6", "⁶"}, {"7", "⁷"}, {"8", "⁸"}, {"9", "⁹"}}; 
 	
 		
-		System.out.println(findy("57x+5","2")); // works // for linear equations
+		System.out.println(findy("57x+5","2"));
 		System.out.println(findder("tan(x)+15x²+sin(x)+3x+5"));
 	}
-	public static int superscript(String str) { // add something in later to help it detect what to set it to the power of 
+	public static int superscript(String str) {  
 		str = str.replaceAll( "⁰","0");
 		str = str.replaceAll( "¹","1");
 		str = str.replaceAll( "²","2");
@@ -80,7 +80,7 @@ public class CalcOpp extends TestCalculator{ // Plan : utilize data structures f
 		boolean neg = false; 
 
 		for (int i=0; i<equation.length(); i++) {
-			if (equation.substring(i,i+1).equals("+")||equation.substring(i,i+1).equals("-")) { // if something is negative or a different symbol add in something to combat that 
+			if (equation.substring(i,i+1).equals("+")||equation.substring(i,i+1).equals("-")) {
 				count++; 
 				spots++; 
 			} 
@@ -93,8 +93,7 @@ public class CalcOpp extends TestCalculator{ // Plan : utilize data structures f
 	}
 	
 	
-	public static String findder(String equation) { // IT WORKS 
-		// after completing the in depth derivative process change that value to 1
+	public static String findder(String equation) { 
 		int c=1; 
 		int n=1; 
 		String derivative = "";
@@ -160,16 +159,16 @@ public class CalcOpp extends TestCalculator{ // Plan : utilize data structures f
 		String str_integral [] = {"ex","x²/2","x³/3","x⁴/4","x⁵/5","x⁶/6","x⁷/7","x⁸/8","x⁹/9"};
 		String integral = ""; 
 		
-		
+		// in the works
 		
 		
 		
 		
 		return integral; 
-		// make the algorithm for integrals similar to the derivative one, 
+		
 	}
 
-	public static String findy(String equation, String x) { // YAY MF IT WORKS NEXT , in this program but not for the calculator i wonder why 
+	public static String findy(String equation, String x) {  
 		int eq=0; 
 		String [] store = {"","","","","","","",""};
 		int count = 0;
@@ -177,7 +176,7 @@ public class CalcOpp extends TestCalculator{ // Plan : utilize data structures f
 		System.out.println(equation);
 
 		for (int i=0; i<equation.length(); i++) {
-			if (equation.substring(i,i+1).equals("+")||equation.substring(i,i+1).equals("-")) { // if something is negative or a different symbol add in something to combat that 
+			if (equation.substring(i,i+1).equals("+")||equation.substring(i,i+1).equals("-")) { 
 				count++; 
 				spots++; 
 			} 
@@ -191,9 +190,9 @@ public class CalcOpp extends TestCalculator{ // Plan : utilize data structures f
 			for (int i=0; i<=store[a].length();i++) {
 				if (store[a].contains("x")) {
 					int b =  Integer.parseInt(store[a].substring(0,store[a].indexOf("x")))*Integer.parseInt(x);       
-					System.out.println(b); // PRINTING HERE 
+					// System.out.println(b); 
 					store[a]= Integer.toString(b);
-					System.out.println(store[a]);  // PRINTING HERE 
+					// System.out.println(store[a]);  
 				}
 			}
 		}
@@ -212,7 +211,7 @@ public class CalcOpp extends TestCalculator{ // Plan : utilize data structures f
 
 	public String findzeros(String equation) { // only for quadratic equations 
 		String zeros = "";
-
+		// in process
 		return zeros; // seperate seperate values by commas if needed 
 	}
 
