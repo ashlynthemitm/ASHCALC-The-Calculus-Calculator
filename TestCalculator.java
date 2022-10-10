@@ -15,9 +15,7 @@ import java.util.*;
 import java.awt.ComponentOrientation;
 import java.awt.Component;
 
-// change the layout of the calculator 
-// use more data structures, linked list, tress etc. 
-// make the white text box the spot for the most basic problems and the pink for everything else 
+// in the process of condensing and adjusting memory allocation 
 public class TestCalculator extends JFrame implements ActionListener, ComponentListener { 
 	private static ArrayList findsol = new ArrayList();
 	private static boolean testvalue1=false; 
@@ -29,7 +27,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 	private static boolean setpower = false; 
 	private static double value1, value2=0;
 	private static double answer; 
-	private static int placeholder=1;  /// insert this to scan within the program 
+	private static int placeholder=1;  
 	private static JLabel enter = new JLabel(""); 
 	private static JLabel eqlabel = new JLabel("");
 	private static JFrame Calculator=new JFrame(); 
@@ -127,7 +125,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 		backspace.setBackground(Color.white);xy.setBackground(Color.white);integral.setBackground(Color.pink);derivative.setBackground(Color.pink);findy.setBackground(Color.pink);
 		findzeros.setBackground(Color.pink);clear.setFont(font);equal.setFont(font);add.setFont(font);subtract.setFont(font);multiply.setFont(font);divide.setFont(font);backspace.setFont(font);
 		
-		//Calculator.add(numpanel);//Calculator.add(oppanel);//numpanel.add(one); numpanel.add(two); numpanel.add(three); numpanel.add(four); numpanel.add(five); numpanel.add(six); numpanel.add(seven); numpanel.add(eight);numpanel.add(nine); numpanel.add(zero);
+		
 		eqpanel.add(eqlabel);panel.add(enter);Calculator.add(eqpanel);Calculator.add(panel);Calculator.add(backspace);Calculator.add(equal);Calculator.add(clear);Calculator.add(add);Calculator.add(subtract);Calculator.add(multiply);Calculator.add(divide);
 		Calculator.add(one); Calculator.add(two); Calculator.add(three);Calculator.add(four); Calculator.add(five); Calculator.add(six);Calculator.add(seven); Calculator.add(eight); Calculator.add(nine);Calculator.add(zero);
 		Calculator.add(power);Calculator.add(sqrd);Calculator.add(pi); Calculator.add(e); Calculator.add(sin);Calculator.add(cos);Calculator.add(tan); Calculator.add(sec);Calculator.add(csc);Calculator.add(cot);
@@ -159,7 +157,6 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 		}
 
 		if (d.getSource()==solvemenu) {
-			// add buttons for integrals etc. 
 			eqlabel.setText("f(x)="+" ");
 			eqlabel.setText("f(x)=");
 			Calculator.add(integral);
@@ -168,7 +165,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 			Calculator.add(findzeros);
 		}
 
-		if (d.getSource()==standardmenu) { // adjust the way the panels show and not show for the feature later 
+		if (d.getSource()==standardmenu) { // adjust the way the panels show and not show for the feature 
 			Calculator.remove(integral);
 			Calculator.remove(derivative);
 			Calculator.remove(findy);
@@ -180,7 +177,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 	}
 
 
-	private static class trig implements ActionListener{ // multiply times place holder 
+	private static class trig implements ActionListener{ 
 		public void actionPerformed(ActionEvent a) { 
 			if (a.getSource()==sec) {
 				eqlabel.setText(eqlabel.getText()+"sec"); 
@@ -209,10 +206,10 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 			if (a.getSource()==outpa) {
 				eqlabel.setText(eqlabel.getText()+")");
 			}
-			if (a.getSource()==sin) { // add in setting the text to what is being inputted 
+			if (a.getSource()==sin) {  
 
 				if (trig1==null) {
-					trig1="sin";  // say if == this use Math.sin
+					trig1="sin";  
 					eqlabel.setText(eqlabel.getText()+"sin");
 					enter.setText(enter.getText()+"sin");
 				} else {
@@ -223,7 +220,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 
 			} else if (a.getSource()==cos) {
 				if (trig1==null) {
-					trig1="cos";  // say if == this use Math.sin
+					trig1="cos";  
 					eqlabel.setText(eqlabel.getText()+"cos");
 					enter.setText(enter.getText()+"cos");
 				} else {
@@ -234,7 +231,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 
 			} else if (a.getSource()==tan) {
 				if (trig1==null) {
-					trig1="tan";  // say if == this use Math.sin
+					trig1="tan";  
 					eqlabel.setText(eqlabel.getText()+"tan");
 					enter.setText(enter.getText()+"tan");
 				} else {
@@ -245,7 +242,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 
 			} else if (a.getSource()==ln) {
 				if (trig1==null) {
-					trig1="ln";  // say if == this use Math.sin
+					trig1="ln";  
 					eqlabel.setText(eqlabel.getText()+"ln");
 					enter.setText(enter.getText()+"ln");
 				} else {
@@ -255,7 +252,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 				}
 			} else if (a.getSource()==log) {
 				if (trig1==null) {
-					trig1="log";  // say if == this use Math.sin
+					trig1="log";  
 					eqlabel.setText(eqlabel.getText()+"log");
 					enter.setText(enter.getText()+"log");
 				} else {
@@ -294,20 +291,20 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 				}
 			} else if (e.getSource()== divide) {
 				operation="divide";
-				if (!eqlabel.getText().equals("")) { // adjust this if I have to 
+				if (!eqlabel.getText().equals("")) { 
 					eqlabel.setText(eqlabel.getText()+"/");
 				}
 			} else if (e.getSource()== power) {
 				operation="power";
-				if (!eqlabel.getText().equals("")) { // adjust this if I have to 
+				if (!eqlabel.getText().equals("")) { 
 					eqlabel.setText(eqlabel.getText()+"^");
 				}
 
 			}
-			if(value1==0&&value2==0&&e.getSource()!=equal) { // change these if statements
+			if(value1==0&&value2==0&&e.getSource()!=equal) { 
 
-				// change this trig reading around to fit parantheses 
-				if (trig1!=null) { // if substring (0,2).equals sin or cos or tan
+				 
+				if (trig1!=null) { 
 					String x=enter.getText().substring(3); 
 					double a=Double.parseDouble(x);
 					if(trig1=="sin") {	
@@ -323,10 +320,10 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 						value1=Math.log10(a);
 					}
 				} else {
-					value1=Double.parseDouble(enter.getText()); // setting the first value equal to the value1 value 
+					value1=Double.parseDouble(enter.getText()); 
 				}
 
-				testvalue1=true; // now it will be known that one value has been established 
+				testvalue1=true; 
 				enter.setText("");
 			} else if (value1!=0&&testvalue1==true) {
 
@@ -354,7 +351,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 
 
 
-			// tie together the answer here 
+			
 			if (testvalue1==true&&testvalue2==true&&e.getSource()==equal) {
 				if(operation.equals("add")) {
 					answer=value1+value2;
@@ -364,7 +361,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 					answer=(value1)*(value2);
 					System.out.println(answer);
 				} if (operation.equals("divide")) {
-					answer=value1/value2; // divide a number by 0 and understand it is equal to infinity :)
+					answer=value1/value2; 
 				} if (operation.equals("power")) {
 					answer=Math.pow(value1, value2);
 				}
@@ -483,12 +480,11 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 			testvalue2=false; 
 
 		}
-	} private static class pi implements ActionListener { // change the input into the equation label into the pi symbol .... from there it'll read it 
+	} private static class pi implements ActionListener { 
 		public void actionPerformed(ActionEvent e) {
 
 			eqlabel.setText(eqlabel.getText()+"\u03c0");
 			if (enter.getText().equals("")&&value1==0) {
-				//enter.setText(Double.toString(Math.PI));
 				value1=Math.PI;
 				testvalue1=true; 
 				enter.setText(Double.toString(value1));	
@@ -498,8 +494,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 				testvalue2=true; 
 				enter.setText(Double.toString(value2));
 
-			} else if (trig1!=null&&trig2==null) { // may have to adjust this condition
-				// left off here  
+			} else if (trig1!=null&&trig2==null) { 
 				System.out.println(enter.getText().substring(3)+"this");
 				if(enter.getText().substring(3).equals(null)) {
 					enter.setText(enter.getText()+Math.PI);
@@ -510,7 +505,7 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 
 				}
 
-			} else if (trig2!=null) { // may have to adjust this condition
+			} else if (trig2!=null) { 
 				if(enter.getText().substring(3).equals(null)) {
 					enter.setText(enter.getText()+Math.PI);
 				} else {
@@ -527,11 +522,10 @@ public class TestCalculator extends JFrame implements ActionListener, ComponentL
 
 			}
 		}
-	} private static class efunc implements ActionListener { // fix e later 
+	} private static class efunc implements ActionListener { 
 		public void actionPerformed(ActionEvent e) {
 			eqlabel.setText(eqlabel.getText()+"e");
 			if (enter.getText().equals("")&&value1==0) {
-				//enter.setText(Double.toString(Math.PI));
 				value1=Math.E;
 				testvalue1=true; 
 				enter.setText(Double.toString(value1));
