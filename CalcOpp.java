@@ -159,7 +159,7 @@ public class CalcOpp extends TestCalculator{
 		String str_integral [] = {"ex","x²/2","x³/3","x⁴/4","x⁵/5","x⁶/6","x⁷/7","x⁸/8","x⁹/9"};
 		String integral = ""; 
 		
-		// in the works
+		
 		
 		
 		
@@ -208,12 +208,6 @@ public class CalcOpp extends TestCalculator{
 	}
 
 
-
-	public String findzeros(String equation) { // only for quadratic equations 
-		String zeros = "";
-		// in process
-		return zeros; // seperate seperate values by commas if needed 
-	}
 
 
 
